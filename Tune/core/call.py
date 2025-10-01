@@ -1,8 +1,9 @@
 import asyncio
+from random import randint
 from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls, filters
-from pytgcalls.types import AudioPiped, VideoPiped
+from pytgcalls.types import AudioPiped, VideoPiped, StreamAudioEnded
 from pytgcalls.exceptions import NoActiveGroupCall
 
 from Tune import app, userbot
@@ -50,10 +51,7 @@ class RyzenCall:
         else:
             stream = AudioPiped(link)
         try:
-            await self.pytgcalls.change_stream(
-                chat_id,
-                stream,
-            )
+            await self.pytgcalls.change_stream(chat_id, stream)
         except Exception:
             return False
         return True
@@ -99,10 +97,7 @@ class RyzenCall:
         else:
             stream = AudioPiped(link)
         try:
-            await self.pytgcalls.play(
-                chat_id,
-                stream,
-            )
+            await self.pytgcalls.play(chat_id, stream)
         except NoActiveGroupCall:
             try:
                 await userbot.invoke(
@@ -112,10 +107,7 @@ class RyzenCall:
                         "random_id": randint(10000, 999999999),
                     }
                 )
-                await self.pytgcalls.play(
-                    chat_id,
-                    stream,
-                )
+                await self.pytgcalls.play(chat_id, stream)
             except Exception:
                 return False
         except Exception:
@@ -124,10 +116,7 @@ class RyzenCall:
 
     async def change_stream(self, client, path):
         try:
-            await self.pytgcalls.change_stream(
-                client,
-                AudioPiped(path),
-            )
+            await self.pytgcalls.change_stream(client, AudioPiped(path))
         except Exception:
             return False
         return True
@@ -140,6 +129,7 @@ class RyzenCall:
         async def stream_end_handler(client, update):
             if not isinstance(update, StreamAudioEnded):
                 return
-            await auto_end(client, update, self.pytgcalls)
+            # Auto-end logic can be added here
+            pass
 
 Ryzen = RyzenCall()

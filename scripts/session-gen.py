@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
+"""
+Pyrogram Session String Generator
+Generate session string for Ryzen Music Bot
+"""
 
-import asyncio
 from pyrogram import Client
 
-print("🎵 Ryzen Music - Session String Generator")
-print("=" * 40)
+print("🎵 Ryzen Music Bot - Session Generator")
+print("=" * 50)
 
-API_ID = int(input("Enter API_ID: "))
-API_HASH = input("Enter API_HASH: ")
+API_ID = input("Enter your API ID: ")
+API_HASH = input("Enter your API HASH: ")
 
-async def generate_session():
-    async with Client(":memory:", api_id=API_ID, api_hash=API_HASH) as app:
-        session_string = await app.export_session_string()
-        print(f"\n✅ Your Session String:\n{session_string}")
-        print("\n📝 Add this to your .env file as STRING1")
-
-if __name__ == "__main__":
-    asyncio.run(generate_session())
+try:
+    with Client("session", api_id=API_ID, api_hash=API_HASH) as app:
+        session_string = app.export_session_string()
+        print(f"\n✅ Session String Generated Successfully!")
+        print(f"📋 Your Session String:")
+        print(f"{session_string}")
+        print(f"\n⚠️ Keep this session string safe and don't share it!")
+        
+except Exception as e:
+    print(f"❌ Error: {e}")

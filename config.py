@@ -1,3 +1,8 @@
+"""
+Ryzen Music Bot Configuration
+All environment variables and settings
+"""
+
 import os
 from os import getenv
 
@@ -20,18 +25,16 @@ STRING3 = getenv("STRING3", "")
 STRING4 = getenv("STRING4", "")
 STRING5 = getenv("STRING5", "")
 
-# API Keys for Enhanced Performance
-YOUTUBE_API_KEY = getenv("API_KEY", "NxGBNexGenBots3fd157")
+# API Keys
+YOUTUBE_API_KEY = getenv("API_KEY", "")
 GENIUS_ACCESS_TOKEN = getenv("GENIUS_ACCESS_TOKEN", "")
-
-# YouTube Cookies - Pastebin URL
-YOUTUBE_COOKIES_URL = getenv("COOKIE_URL", "https://pastebin.com/ipRp9jwe")
+YOUTUBE_COOKIES_URL = getenv("COOKIE_URL", "")
 
 # Support Configuration
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ryzensupport")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/Ryzen_supportxc")
 
-# Performance Optimization
+# Performance Settings
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "60"))
 SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION", "180"))
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "25"))
@@ -65,11 +68,11 @@ BROADCAST_ON_START = True
 # Banned Users List
 BANNED_USERS = set()
 
-# Ultra-Fast Configuration
+# Repository Settings
 UPSTREAM_REPO = "https://github.com/RyzenMusic/RyzenMusic"
 UPSTREAM_BRANCH = "master"
 
-# Advanced Features
+# Feature Flags
 ENABLE_LYRICS = True
 ENABLE_QUEUE = True
 ENABLE_BROADCAST = True

@@ -18,7 +18,7 @@
 
 - ⚡ **Ultra-Fast Performance** - Nanosecond response time
 - 🎵 **High-Quality Audio/Video** - Crystal clear streaming
-- 🔍 **Multi-Platform Support** - YouTube, Spotify, SoundCloud, and more
+- 🔍 **Multi-Platform Support** - YouTube, Spotify, SoundCloud
 - 📱 **Advanced Queue Management** - Smart playlist handling
 - 🎛️ **Admin Controls** - Complete music control
 - 🌐 **Multi-Language Support** - Available in multiple languages
@@ -60,19 +60,20 @@ cp .env.example .env
 
 4. **Run the bot:**
 ```bash
-python -m Tune
+python main.py
 ```
 
 ## ⚙️ Configuration
 
-Edit `config.py` with your credentials:
+Edit `.env` file with your credentials:
 
-```python
-API_ID = 12345678
-API_HASH = "your_api_hash"
-BOT_TOKEN = "your_bot_token"
-MONGO_DB_URI = "your_mongodb_uri"
-OWNER_ID = [your_user_id]
+```env
+API_ID=your_api_id
+API_HASH=your_api_hash
+BOT_TOKEN=your_bot_token
+MONGO_DB_URI=your_mongodb_uri
+OWNER_ID=your_user_id
+STRING_SESSION=your_pyrogram_session
 ```
 
 ## 📝 Commands
@@ -86,19 +87,25 @@ OWNER_ID = [your_user_id]
 - `/stop` - Stop music and clear queue
 - `/queue` - Show current queue
 
-### 👮‍♂️ Admin Commands
+### 👮♂️ Admin Commands
 - `/settings` - Bot settings
-- `/auth` - Authorize users
-- `/unauth` - Unauthorize users
-- `/reload` - Reload bot
+- `/broadcast` - Send broadcast message
+- `/stats` - Bot statistics
 
-## 🎨 Customization
+## 🏗️ Project Structure
 
-### Adding Custom Fonts
-Place your fonts in `assets/fonts/` directory.
-
-### Adding Custom Images
-Place your images in `assets/images/` directory.
+```
+RyzenMusic/
+├── Tune/                 # Main package
+│   ├── core/            # Core functionality
+│   ├── plugins/         # Command handlers
+│   ├── platforms/       # Platform integrations
+│   └── utils/           # Utility functions
+├── assets/              # Static resources
+├── scripts/             # Deployment scripts
+├── main.py             # Entry point
+└── config.py           # Configuration
+```
 
 ## 🤝 Contributing
 
@@ -116,10 +123,6 @@ This project is licensed under the GNU AGPL v3.0 License - see the [LICENSE](LIC
 
 - **Telegram:** [@RyzenMusicSupport](https://t.me/RyzenMusicSupport)
 - **Channel:** [@RyzenMusicChannel](https://t.me/RyzenMusicChannel)
-
-## ⭐ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=RyzenMusic/RyzenMusic&type=Date)](https://star-history.com/#RyzenMusic/RyzenMusic&Date)
 
 ---
 

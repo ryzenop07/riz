@@ -1,1 +1,1 @@
-worker: python -m Tune
+worker: python main.py

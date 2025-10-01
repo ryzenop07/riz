@@ -1,9 +1,12 @@
-# Byte-compiled / optimized / DLL files
+# Environment variables
+.env
+*.env
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Distribution / packaging
+*.so
 .Python
 build/
 develop-eggs/
@@ -21,17 +24,18 @@ wheels/
 .installed.cfg
 *.egg
 
-# Environment variables
-.env
-config.env
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Session files
+*.session
+*.session-journal
 
 # Logs
+logs/
 *.log
-logs.txt
-
-# Database
-*.db
-*.sqlite3
 
 # Cache
 cache/
@@ -39,18 +43,7 @@ cache/
 
 # Downloads
 downloads/
-*.mp3
-*.mp4
-*.m4a
-*.webm
-
-# Session files
-*.session
-*.session-journal
-
-# Cookies (security)
-cookies/*.txt
-!cookies/youtube.txt
+temp/
 
 # IDE
 .vscode/
@@ -62,8 +55,6 @@ cookies/*.txt
 .DS_Store
 Thumbs.db
 
-# Heroku
-.heroku/
-
-# Docker
-.dockerignore
+# Cookies
+cookies/*.txt
+!cookies/.gitkeep

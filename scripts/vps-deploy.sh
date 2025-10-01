@@ -1,47 +1,43 @@
 #!/bin/bash
 
-# Ryzen Music Bot - Auto VPS Deploy Script
-set -e
+# Ryzen Music Bot - VPS Deployment Script
 
-echo "🎵 Ryzen Music Bot - VPS Auto Deploy"
-echo "======================================"
+echo "🎵 Ryzen Music Bot - VPS Deployment"
+echo "=================================="
 
 # Update system
-echo "📦 Updating system..."
-apt update && apt upgrade -y
+echo "📦 Updating system packages..."
+sudo apt update && sudo apt upgrade -y
 
-# Install dependencies
-echo "🔧 Installing dependencies..."
-apt install -y python3.11 python3.11-pip python3.11-venv git ffmpeg curl wget
+# Install Python and pip
+echo "🐍 Installing Python 3.11..."
+sudo apt install python3.11 python3.11-pip python3.11-venv -y
 
-# Clone repository
-echo "📥 Cloning repository..."
-cd /root
-git clone https://github.com/RyzenMusic/RyzenMusic
-cd RyzenMusic
+# Install FFmpeg
+echo "🎬 Installing FFmpeg..."
+sudo apt install ffmpeg -y
 
-# Setup virtual environment
-echo "🐍 Setting up Python environment..."
+# Create virtual environment
+echo "📁 Creating virtual environment..."
 python3.11 -m venv venv
 source venv/bin/activate
+
+# Install dependencies
+echo "📚 Installing Python dependencies..."
 pip install -r requirements.txt
 
-# Create environment file
-echo "⚙️ Creating configuration..."
-cp .env.example .env
-
 # Create systemd service
-echo "🚀 Creating system service..."
-cat > /etc/systemd/system/ryzenmusic.service << EOF
+echo "⚙️ Creating systemd service..."
+sudo tee /etc/systemd/system/ryzenmusic.service > /dev/null <<EOF
 [Unit]
 Description=Ryzen Music Bot
 After=network.target
 
 [Service]
 Type=simple
-User=root
-WorkingDirectory=/root/RyzenMusic
-ExecStart=/root/RyzenMusic/venv/bin/python -m Tune
+User=$USER
+WorkingDirectory=$(pwd)
+ExecStart=$(pwd)/venv/bin/python main.py
 Restart=always
 RestartSec=3
 
@@ -49,26 +45,11 @@ RestartSec=3
 WantedBy=multi-user.target
 EOF
 
-# Enable service
-systemctl daemon-reload
-systemctl enable ryzenmusic
+# Enable and start service
+sudo systemctl daemon-reload
+sudo systemctl enable ryzenmusic
+sudo systemctl start ryzenmusic
 
-# Performance optimization
-echo "⚡ Optimizing performance..."
-echo "* soft nofile 65536" >> /etc/security/limits.conf
-echo "* hard nofile 65536" >> /etc/security/limits.conf
-
-# Setup firewall
-echo "🔒 Configuring firewall..."
-ufw --force enable
-ufw allow ssh
-
-echo ""
-echo "✅ Installation Complete!"
-echo ""
-echo "📝 Next Steps:"
-echo "1. Edit /root/RyzenMusic/.env with your bot credentials"
-echo "2. Run: systemctl start ryzenmusic"
-echo "3. Check status: systemctl status ryzenmusic"
-echo ""
-echo "🎵 Your Ryzen Music Bot is ready!"
+echo "✅ Deployment completed!"
+echo "🔍 Check status: sudo systemctl status ryzenmusic"
+echo "📋 View logs: sudo journalctl -u ryzenmusic -f"

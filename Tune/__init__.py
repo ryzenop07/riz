@@ -1,3 +1,5 @@
+"""Ryzen Music Bot - Core Package"""
+
 import sys
 from pyrogram import Client
 from pytgcalls import PyTgCalls
@@ -29,7 +31,11 @@ userbot.set_parse_mode("html")
 
 # Initialize core components
 async def init_ryzen():
+    """Initialize all core components"""
     await mongodb.connect()
     create_directories()
     check_git()
-    LOGGER(__name__).info("ᴅᴀᴛᴀʙᴀsᴇ ʟᴏᴀᴅᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ💗")
+    LOGGER(__name__).info("Database loaded successfully")
+
+__version__ = "2.0.0"
+__author__ = "Ryzen Music Team"
