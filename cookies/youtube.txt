@@ -1,0 +1,11 @@
+# Netscape HTTP Cookie File
+# This is a generated file! Do not edit.
+
+# Paste your YouTube cookies here in Netscape format
+# Example format:
+# .youtube.com	TRUE	/	FALSE	1735689600	VISITOR_INFO1_LIVE	abc123def456
+# .youtube.com	TRUE	/	FALSE	1735689600	YSC	xyz789
+# .youtube.com	TRUE	/	FALSE	1735689600	PREF	f4=4000000&tz=UTC
+# .youtube.com	TRUE	/	FALSE	1735689600	CONSENT	YES+cb.20210328-17-p0.en+FX+667
+
+# Replace this with your actual cookies from browser extension

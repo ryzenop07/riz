@@ -1,0 +1,56 @@
+{
+    "name": "Ryzen Music Bot",
+    "description": "Ultra-fast Telegram Music Bot with nanosecond response time",
+    "logo": "https://te.legra.ph/file/c0e014ff34f34d1056627.png",
+    "keywords": [
+        "python3",
+        "telegram",
+        "bot",
+        "ryzen",
+        "music",
+        "pyrogram",
+        "pytgcalls"
+    ],
+    "stack": "container",
+    "env": {
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "BOT_TOKEN": {
+            "description": "Get this value from @BotFather",
+            "required": true
+        },
+        "MONGO_DB_URI": {
+            "description": "MongoDB Database URL",
+            "required": true
+        },
+        "LOG_GROUP_ID": {
+            "description": "Your Log Group ID",
+            "required": true
+        },
+        "OWNER_ID": {
+            "description": "Your User ID",
+            "required": true
+        },
+        "STRING1": {
+            "description": "Pyrogram String Session",
+            "required": true
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "basic"
+        }
+    }
+}

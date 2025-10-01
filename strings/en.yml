@@ -1,0 +1,45 @@
+# Ryzen Music Bot Strings
+
+# General
+general_1: "**🎵 Welcome to Ryzen Music!**\n\nI'm an ultra-fast music bot that can play music in voice chats with nanosecond response time!"
+general_2: "**Error:** An unexpected error occurred. Please try again."
+general_3: "**Error:** {0}"
+
+# Play Commands
+play_1: "**🔍 Processing your request...**"
+play_2: "**🎵 Now Playing**\n\n**Title:** {0}\n**Duration:** {1}\n**Requested by:** {2}"
+playback_1: "**⏸ Paused**\n\nMusic has been paused by {0}!"
+playback_2: "**❌ Usage:** /play [song name/youtube link/reply to audio]"
+
+# Stream
+stream_1: "**🎵 Started Streaming**\n\n**👤 Requested By:** {0}\n**🔗 Search More:** [Click Here]({1})"
+
+# Inline Buttons
+CLOSEMENU_BUTTON: "🗑 Close"
+BACK_BUTTON: "🔙 Back"
+UNBAN_BUTTON: "🔓 Unban Assistant"
+
+# Settings
+setting_1: "**⚙️ Ryzen Music Settings**\n\nConfigure your music experience:"
+setting_2: "**Audio Quality:** {0}\n**Video Quality:** {1}\n**Auth Users:** {2}\n**Clean Mode:** {3}"
+
+# Admin Commands
+admin_1: "**👮‍♂️ Admin Commands**\n\n/pause - Pause current track\n/resume - Resume paused track\n/skip - Skip current track\n/stop - Stop music and clear queue"
+admin_2: "**✅ Success:** {0}"
+admin_3: "**❌ Failed:** {0}"
+
+# Queue
+queue_1: "**📝 Current Queue**\n\n"
+queue_2: "**Empty Queue**\n\nNo songs in queue. Add some music!"
+
+# Ping
+ping_1: "**🏓 Pong!**\n\n**Latency:** {0}ms\n**Uptime:** {1}"
+
+# Start
+start_1: "**🎵 Hey {0}!**\n\nI'm **Ryzen Music**, the fastest Telegram music bot with nanosecond response time!\n\n**🚀 Features:**\n• Ultra-fast streaming\n• High-quality audio/video\n• Advanced queue management\n• Multi-platform support"
+start_2: "**🎵 Ryzen Music**\n\nClick the button below to add me to your group!"
+start_3: "**📊 Bot Statistics**\n\n**Users:** {0}\n**Chats:** {1}\n**Played:** {2}"
+
+# Help
+help_1: "**📚 Help Menu**\n\nSelect a category to get help:"
+help_2: "**🎵 Music Commands**\n\n/play - Play a song\n/vplay - Play video\n/pause - Pause music\n/resume - Resume music\n/skip - Skip current song\n/stop - Stop music\n/queue - Show queue"
